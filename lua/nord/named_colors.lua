@@ -1,6 +1,6 @@
 local nord = {
 	--16 colors
-	black = "#2E3440", -- nord0 in palette
+	black = "#2d333b", -- nord0 in palette
 	dark_gray = "#3B4252", -- nord1 in palette
 	gray = "#434C5E", -- nord2 in palette
 	light_gray = "#4C566A", -- nord3 in palette
@@ -14,10 +14,10 @@ local nord = {
 	blue = "#5E81AC", -- nord10 in palette
 	--red = "#BF616A", -- nord11 in palette
   red = "#f47067",
-	orange = "#D08770", -- nord12 in palette
+	orange = "#f69d50", -- nord12 in palette
 	yellow = "#EBCB8B", -- nord13 in palette
-	green = "#A3BE8C", -- nord14 in palette
-	purple = "#B48EAD", -- nord15 in palette
+	green = "#B2C9AB", -- nord14 in palette
+	purple = "#dcbdfb", -- nord15 in palette
 	none = "NONE",
 }
 return nord
