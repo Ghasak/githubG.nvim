@@ -408,10 +408,10 @@ theme.loadTreeSitter = function()
     treesitter.TSCharacter = {fg = nord.nord14_gui, style = italic} -- For characters.
 
     --treesitter["@comment"] = {fg = nord.nord3_gui_bright, style = italic}
-
     treesitter["@comment"] = {fg = "#768390"}
     treesitter["@conditional"] = {fg = nord.nord9_gui, style = italic}
-    treesitter["@function"] = {fg = nord.nord8_gui, style = italic}
+    --treesitter["@function"] = {fg = nord.nord8_gui, style = italic}
+    treesitter["@function"] = {fg = "#F69D50"}
     treesitter["@method"] = {fg = nord.nord8_gui, style = italic}
     treesitter["@function.builtin"] = {fg = nord.nord8_gui, style = italic}
     treesitter["@namespace"] = {fg = nord.nord4_gui, style = italic}
