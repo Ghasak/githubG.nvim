@@ -102,7 +102,6 @@ hl.common = {
     TextYankPost_style = {fg = c.black, bg = c.light_orange, fmt = "bold"},
     Floaterm = {fg = c.black, bg = c.black}, -- terminal color for nvim
     FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush},
-    rainbowcol1 = {fg = c.Charm_Pink}, -- to color the bracket first color in the rainbow set. (it seems they changed the name)
 }
 
 hl.syntax = {
@@ -556,7 +555,8 @@ hl.plugins.navic = {
 }
 
 hl.plugins.ts_rainbow = {
-    rainbowcol1 = colors.LightGrey,
+
+    rainbowcol1 = colors.Fg,
     rainbowcol2 = colors.Yellow,
     rainbowcol3 = colors.Blue,
     rainbowcol4 = colors.Orange,
