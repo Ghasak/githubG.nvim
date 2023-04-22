@@ -1,14 +1,3 @@
-# Github Modern Theme for NVIM
-## Introduction
-The following `nvim` theme is based on `navarasu/onedark.nvim` theme and
-modified to be more like a `github` theme since it is flexible and easily to be
-modified. I use this theme only for my daily workflow, and I am not expecting
-anyone to use it.
-
-## My Previous Configurations
-
-```lua
-
 local M = {}
 
 M.setup = function()
@@ -302,10 +291,3 @@ end
 
 return M
 
-```
-
-
-
-## References
-Many thank go to the team of of `OneDark.nvim`
-- [OneDark](https://github.com/navarasu/onedark.nvim)
