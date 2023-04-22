@@ -102,13 +102,7 @@ hl.common = {
     TextYankPost_style = {fg = c.black, bg = c.light_orange, fmt = "bold"},
     Floaterm = {fg = c.black, bg = c.black}, -- terminal color for nvim
     FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush},
-    rainbowcol1 = {fg = c.Charm_Pink}, -- to color the bracket first color in the rainbow set.
-    IndentBlanklineIndent1 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent2 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent3 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent4 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent5 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent6 = {fg =c.blue , bg = c.fg}
+    rainbowcol1 = {fg = c.Charm_Pink}, -- to color the bracket first color in the rainbow set. (it seems they changed the name)
 }
 
 hl.syntax = {
@@ -572,12 +566,13 @@ hl.plugins.ts_rainbow = {
 }
 
 hl.plugins.indent_blankline = {
-    IndentBlanklineIndent1 = colors.Blue,
-    IndentBlanklineIndent2 = colors.Green,
-    IndentBlanklineIndent3 = colors.Cyan,
-    IndentBlanklineIndent4 = colors.LightGrey,
-    IndentBlanklineIndent5 = colors.Purple,
-    IndentBlanklineIndent6 = colors.Red,
+
+    IndentBlanklineIndent1 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent2 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent3 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent4 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent5 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent6 = {fg =c.blue , bg = c.fg},
     IndentBlanklineChar = {fg = c.bg1, gui = "nocombine"},
     IndentBlanklineContext = {fg = c.orange, bg = c.grey, bold = true},
     IndentBlanklineContextChar = {fg = c.grey, gui = "nocombine"},
