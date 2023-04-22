@@ -103,12 +103,12 @@ hl.common = {
     Floaterm = {fg = c.black, bg = c.black}, -- terminal color for nvim
     FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush},
     rainbowcol1 = {fg = c.white_bright}, -- to color the bracket first color in the rainbow set.
-    IndentBlanklineIndent1 = {fg =c.fg , bg = c.black},
-    IndentBlanklineIndent2 = {fg =c.fg , bg = c.black},
-    IndentBlanklineIndent3 = {fg =c.fg , bg = c.black},
-    IndentBlanklineIndent4 = {fg =c.fg , bg = c.black},
-    IndentBlanklineIndent5 = {fg =c.fg , bg = c.black},
-    IndentBlanklineIndent6 = {fg =c.fg , bg = c.black}
+    IndentBlanklineIndent1 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent2 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent3 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent4 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent5 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent6 = {fg =c.blue , bg = c.fg}
 }
 
 hl.syntax = {
