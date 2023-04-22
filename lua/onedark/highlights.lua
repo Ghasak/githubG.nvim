@@ -102,7 +102,7 @@ hl.common = {
     TextYankPost_style = {fg = c.black, bg = c.light_orange, fmt = "bold"},
     Floaterm = {fg = c.black, bg = c.black}, -- terminal color for nvim
     FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush},
-    rainbowcol1 = {fg = c.white_bright}, -- to color the bracket first color in the rainbow set.
+    rainbowcol1 = {fg = c.Charm_Pink}, -- to color the bracket first color in the rainbow set.
     IndentBlanklineIndent1 = {fg =c.blue , bg = c.fg},
     IndentBlanklineIndent2 = {fg =c.blue , bg = c.fg},
     IndentBlanklineIndent3 = {fg =c.blue , bg = c.fg},
