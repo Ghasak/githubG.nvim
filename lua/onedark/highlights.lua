@@ -501,7 +501,7 @@ hl.plugins.neotest = {
 
 hl.plugins.nvim_tree = {
     NvimTreeNormal = {
-        fg = c.white_bright,
+        fg = c.fg,
         bg = cfg.transparent and c.none or c.black
     },
     NvimTreeVertSplit = {
