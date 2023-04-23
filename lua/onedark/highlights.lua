@@ -291,7 +291,7 @@ hl.plugins.lsp = {
     LspCxxHlSkippedRegionBeginEnd = colors.Red,
 
     DiagnosticError = {fg = c.light_Fiery_Rose},
-    DiagnosticHint = {fg = c.grey},
+    DiagnosticHint = {fg = c.purple_e},
     DiagnosticInfo = {fg = c.bright_navy_blue},
     DiagnosticWarn = {fg = c.apricot},
 
@@ -314,7 +314,7 @@ hl.plugins.lsp = {
     --     fg = c.bright_navy_blue
     -- },
 
-    DiagnosticVirtualTextHint = {bg = c.black, fg = c.cadet_Grey},
+    DiagnosticVirtualTextHint = {bg = c.black, fg = c.purple_e},
     -- DiagnosticVirtualTextHint = {
     --     bg = cfg.diagnostics.background and
     --         util.darken(diagnostics_hint_color, 0.1, c.bg0) or c.black,
