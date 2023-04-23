@@ -15,7 +15,7 @@ local colors = {
 local one_dark = {
     inactive = {
         a = {fg = colors.gray, bg = colors.bg, gui = 'bold'},
-        b = {fg = colors.gray, bg = c.birght_navy_blue  },
+        b = {fg = colors.gray, bg = c.transparent_grey},
         c = {
             fg = colors.gray,
             bg = cfg.lualine.transparent and c.none or c.black
@@ -23,7 +23,7 @@ local one_dark = {
     },
     normal = {
         a = {fg = colors.bg, bg = colors.green, gui = 'bold'},
-        b = {fg = colors.fg, bg = c.birght_navy_blue  },
+        b = {fg = colors.fg, bg = c.transparent_grey},
         c = {fg = colors.fg, bg = cfg.lualine.transparent and c.none or c.black}
         -- c = {fg = colors.fg, bg = cfg.lualine.transparent and c.none or c.red},
     },

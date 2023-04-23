@@ -4,7 +4,7 @@ return {
         white = "#adbac7",
         white_bright = "#d8dee9",
         beautiful_black = "#343a43",
-        transparent_grey = "#1f2329",
+        transparent_grey = "#31353f",
         bg0 = "#2d333b",
         bg1 = "#2d333b",
         bg2 = "#2d333b",
