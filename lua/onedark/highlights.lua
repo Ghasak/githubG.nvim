@@ -188,7 +188,7 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
         ["@string"] = {fg = c.light_blue, fmt = cfg.code_style.strings},
         ["@string.regex"] = {fg = c.orange, fmt = cfg.code_style.strings},
         ["@string.escape"] = {fg = c.red, fmt = cfg.code_style.strings},
-        ["@symbol"] = colors.Cyan,
+        ["@symbol"] = colors.Red,
         ["@tag"] = colors.Purple,
         ["@tag.attribute"] = colors.Yellow,
         ["@tag.delimiter"] = colors.Purple,
