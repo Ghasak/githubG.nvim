@@ -1,11 +1,62 @@
 # Github Modern Theme for NVIM
+
 ## Introduction
+
 The following `nvim` theme is based on `navarasu/onedark.nvim` theme and
 modified to be more like a `github` theme since it is flexible and easily to be
 modified. I use this theme only for my daily workflow, and I am not expecting
 anyone to use it.
 
+## How to check colors
+
+1. Ensure you have already installed `{"nvim-treesitter/playground"`, and on
+   event = "InsertEnter"
+2. Use the following keymapping:
+   ```lua
+   vim.keymap.set("n", "<leader><leader>", "<cmd>TSHighlightCapturesUnderCursor<CR>", {silent = true})
+   ```
+3. When you want to know the color of any coding element in `nvim` use the
+   keymapping above. It will pop up a small menu to show the type of the
+   element you are using.
+4. Change the color in the `color.lua` for main color loader.
+5. Ensure what `color-theme-highter` name is used for the corresponding element
+   in the `highlights.lua` file.
+6. To check the `color-node`, use the command `:TSPlaygroundToggle`, but
+   usually, I use on the `keymapping` above.
+
+- [playground with nvim-treesitter](https://github.com/nvim-treesitter/playground/tree/master)
+
+## To do next
+
+- [x] By `2023-04-23`, It seems up to this point, there is a conflict for the `Structure` vs
+      `namespaces` in the language `Rust` for the colors highlights. Check both names in the `highlight.lua` file.
+
+- [ ] Is it possible to constumize a specific programming language with the its
+      own treesitter refelect to spepcifc portion of `lsp` elements?
+
 ## My Previous Configurations
+
+These are the configurations that I used to load before using
+
+```lua
+
+ {
+     "navarasu/onedark.nvim",
+     cond = true, -- Don't load this plugin
+     priority = 1000, -- make sure to load this before all the other start plugins
+     config = function()
+         -- Lua
+         require("plugins.configs.onedark_config").setup()
+         -- do not remove the colorscheme!
+         vim.opt.termguicolors = true
+     end,
+     init = function() vim.cmd([[colorscheme onedark]]) end
+ },
+```
+
+- The following configurations I used to put them in afile with name
+  `onedark_config` and load the method I created `setup` as you can see in the
+  configuration file above.
 
 ```lua
 
@@ -304,8 +355,8 @@ return M
 
 ```
 
-
-
 ## References
+
 Many thank go to the team of of `OneDark.nvim`
+
 - [OneDark](https://github.com/navarasu/onedark.nvim)
