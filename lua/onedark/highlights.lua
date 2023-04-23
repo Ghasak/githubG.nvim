@@ -101,7 +101,7 @@ hl.common = {
     -- Added colortheme
     TextYankPost_style = {fg = c.black, bg = c.light_orange, fmt = "bold"},
     Floaterm = {fg = c.black, bg = c.black}, -- terminal color for nvim
-    FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush},
+    FidgetTitle = {fg = c.Charm_Pink, bg = c.Blush}
 }
 
 hl.syntax = {
@@ -291,7 +291,7 @@ hl.plugins.lsp = {
     LspCxxHlSkippedRegionBeginEnd = colors.Red,
 
     DiagnosticError = {fg = c.light_Fiery_Rose},
-    DiagnosticHint = {fg = c.purple_e},
+    DiagnosticHint = {fg = c.Cadet_Blue_Crayola},
     DiagnosticInfo = {fg = c.bright_navy_blue},
     DiagnosticWarn = {fg = c.apricot},
 
@@ -314,7 +314,7 @@ hl.plugins.lsp = {
     --     fg = c.bright_navy_blue
     -- },
 
-    DiagnosticVirtualTextHint = {bg = c.black, fg = c.purple_e},
+    DiagnosticVirtualTextHint = {bg = c.black, fg = c.Cadet_Blue_Crayola},
     -- DiagnosticVirtualTextHint = {
     --     bg = cfg.diagnostics.background and
     --         util.darken(diagnostics_hint_color, 0.1, c.bg0) or c.black,
@@ -500,10 +500,7 @@ hl.plugins.neotest = {
 }
 
 hl.plugins.nvim_tree = {
-    NvimTreeNormal = {
-        fg = c.fg,
-        bg = cfg.transparent and c.none or c.black
-    },
+    NvimTreeNormal = {fg = c.fg, bg = cfg.transparent and c.none or c.black},
     NvimTreeVertSplit = {
         fg = c.white,
         bg = cfg.transparent and c.none or c.black
@@ -567,12 +564,12 @@ hl.plugins.ts_rainbow = {
 
 hl.plugins.indent_blankline = {
 
-    IndentBlanklineIndent1 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent2 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent3 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent4 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent5 = {fg =c.blue , bg = c.fg},
-    IndentBlanklineIndent6 = {fg =c.blue , bg = c.fg},
+    IndentBlanklineIndent1 = {fg = c.blue, bg = c.fg},
+    IndentBlanklineIndent2 = {fg = c.blue, bg = c.fg},
+    IndentBlanklineIndent3 = {fg = c.blue, bg = c.fg},
+    IndentBlanklineIndent4 = {fg = c.blue, bg = c.fg},
+    IndentBlanklineIndent5 = {fg = c.blue, bg = c.fg},
+    IndentBlanklineIndent6 = {fg = c.blue, bg = c.fg},
     IndentBlanklineChar = {fg = c.bg1, gui = "nocombine"},
     IndentBlanklineContext = {fg = c.orange, bg = c.grey, bold = true},
     IndentBlanklineContextChar = {fg = c.grey, gui = "nocombine"},
