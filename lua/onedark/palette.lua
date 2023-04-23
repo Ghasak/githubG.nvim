@@ -12,8 +12,8 @@ return {
         bg_blue = "#73b8f1",
         bg_yellow = "#ebd09c",
         -- fg = "#adbac7",
-        -- fg = "#abb2bf",
-        fg = "#d8dee9", -- << will affect all text
+         fg = "#abb2bf",-- << will affect all text
+        --fg = "#d8dee9",
         -- fg = "#adbac7",
         purple = "#dcbdfb",
         purple_e = "#dcbdfb",
