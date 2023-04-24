@@ -157,7 +157,7 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
         ["@constructor"] = {fg = c.purple_e, fmt = "bold"},
         ["@error"] = colors.Fg,
         ["@exception"] = colors.Purple,
-        ["@field"] = {fg = c.fg},
+        ["@field"] = {fg = c.purple_e},
         ["@float"] = colors.Blue,
         ["@function"] = {fg = c.blue, fmt = cfg.code_style.functions},
         ["@function.builtin"] = {
@@ -229,7 +229,7 @@ else
         TSConstructor = {fg = c.purple_e, fmt = "bold"},
         TSError = colors.Fg,
         TSException = colors.Purple,
-        TSField = {fg = c.fg}, -- colors.Cyan,
+        TSField = {fg = c.purple_e}, -- colors.Cyan,
         TSFloat = colors.Blue,
         TSFunction = {fg = c.purple_e, fmt = cfg.code_style.functions},
         TSFuncBuiltin = {fg = c.purple_e, fmt = cfg.code_style.functions},
