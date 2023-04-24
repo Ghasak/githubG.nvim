@@ -35,8 +35,8 @@ anyone to use it.
       own treesitter refelect to spepcifc portion of `lsp` elements?
 
 - [x] Solved the problem of removing the `pack.load` from the original theme,
-  as it depends on packer package manager loader instead not lazy package
-  manager.
+      as it depends on packer package manager loader instead not lazy package
+      manager.
 
 ## My Previous Configurations
 
