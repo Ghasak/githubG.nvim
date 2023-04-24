@@ -165,8 +165,8 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
             fmt = cfg.code_style.functions
         },
         ["@function.macro"] = {fg = c.red, fmt = cfg.code_style.functions},
-        ["@function.call"] = {fg = c.purple_e, fmt = cfg.code_style.functions}, -- this was not inlcuded
-        ["@method.call"] = {fg = c.purple_e, fmt = cfg.code_style.functions}, -- this was not inlcuded
+        ["@function.call"] = {fg = c.blue, fmt = cfg.code_style.functions}, -- this was not inlcuded
+        ["@method.call"] = {fg = c.blue, fmt = cfg.code_style.functions}, -- this was not inlcuded
         ["@include"] = colors.red,
         ["@keyword"] = {fg = c.red, fmt = cfg.code_style.keywords},
         ["@keyword.function"] = {fg = c.red, fmt = cfg.code_style.functions},
