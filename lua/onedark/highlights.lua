@@ -88,7 +88,7 @@ hl.common = {
     TabLine = {fg = c.black, bg = c.black},
     TabLineFill = {fg = c.black, bg = c.black},
     TabLineSel = {fg = c.bg0, bg = c.black},
-    VertSplit = {fg = c.fg, bg = c.black},
+    VertSplit = {fg = c.black, bg = c.black},
     Visual = {fg = c.Davys_Grey, bg = c.Charm_Pink, fmt = "bold"},
     VisualNOS = {fg = c.none, bg = c.bg2, fmt = "underline"},
     QuickFixLine = {fg = c.blue, fmt = "underline"},
