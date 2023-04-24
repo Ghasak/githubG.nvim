@@ -470,7 +470,7 @@ hl.plugins.neo_tree = {
         bg = cfg.transparent and c.none or c.bg_d
     },
     NeoTreeRootName = {fg = c.orange, fmt = "bold"},
-    NeoTreeGitAdded = colors.Green,
+    NeoTreeGitAdded = colors.Blue,
     NeoTreeGitDeleted = colors.Red,
     NeoTreeGitModified = colors.Yellow,
     NeoTreeGitConflict = {fg = c.red, fmt = "bold,italic"},
