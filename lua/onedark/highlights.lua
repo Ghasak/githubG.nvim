@@ -160,10 +160,7 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
         ["@field"] = {fg = c.fg},
         ["@float"] = colors.Blue,
         ["@function"] = {fg = c.blue, fmt = cfg.code_style.functions},
-        ["@function.builtin"] = {
-            fg = c.blue,
-            fmt = cfg.code_style.functions
-        },
+        ["@function.builtin"] = {fg = c.blue, fmt = cfg.code_style.functions},
         ["@function.macro"] = {fg = c.purple_e, fmt = cfg.code_style.functions},
         ["@function.call"] = {fg = c.blue, fmt = cfg.code_style.functions}, -- this was not inlcuded
         ["@method.call"] = {fg = c.blue, fmt = cfg.code_style.functions}, -- this was not inlcuded
@@ -179,7 +176,7 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
         ["@operator"] = colors.Red,
         ["@parameter"] = {fg = c.fg}, -- colors.Red,
         ["@parameter.reference"] = colors.Fg,
-        --["@property"] = colors.Cyan,
+        -- ["@property"] = colors.Cyan,
         ["@property"] = colors.Fg,
         ["@punctuation.delimiter"] = colors.LightGrey,
         ["@punctuation.bracket"] = colors.LightGrey,
@@ -293,7 +290,7 @@ hl.plugins.lsp = {
     LspCxxHlSkippedRegionBeginEnd = colors.Red,
 
     DiagnosticError = {fg = c.light_Fiery_Rose},
-    DiagnosticHint = {fg = c.Buff  },
+    DiagnosticHint = {fg = c.Buff},
     DiagnosticInfo = {fg = c.bright_navy_blue},
     DiagnosticWarn = {fg = c.apricot},
 
@@ -738,6 +735,8 @@ hl.langs.vim = {
     vimVar = {fg = c.fg, fmt = cfg.code_style.variables},
     vimCommentTitle = {fg = c.light_grey, fmt = cfg.code_style.comments}
 }
+
+hl.langs.rust_analyzer = {rustFuncName = {fg = c.purple_e}}
 
 local lsp_kind_icons_color = {
     Default = c.purple,
