@@ -736,7 +736,8 @@ hl.langs.vim = {
     vimCommentTitle = {fg = c.light_grey, fmt = cfg.code_style.comments}
 }
 
-hl.langs.rust_analyzer = {rustFuncName = {fg = c.purple_e}}
+--hl.langs.rust_analyzer = {rustFuncName = {fg = c.purple_e}}
+hl.langs.rust = {rustFuncName = {fg = c.purple_e}}
 
 local lsp_kind_icons_color = {
     Default = c.purple,
