@@ -516,7 +516,8 @@ hl.plugins.nvim_tree = {
     NvimTreeIndentMarker = colors.Fg,
     NvimTreeImageFile = {fg = c.purple_e},
     NvimTreeSymlink = c.purple_e,
-    NvimTreeFolderName = c.blue
+    NvimTreeFolderName = c.blue,
+    NvimTreeBookmark = c.blue
 }
 hl.plugins.telescope = {
     TelescopeBorder = {fg = c.white},
@@ -735,7 +736,6 @@ hl.langs.vim = {
     vimVar = {fg = c.fg, fmt = cfg.code_style.variables},
     vimCommentTitle = {fg = c.light_grey, fmt = cfg.code_style.comments}
 }
-
 
 local lsp_kind_icons_color = {
     Default = c.purple,
