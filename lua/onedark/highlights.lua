@@ -132,7 +132,7 @@ hl.syntax = {
     SpecialChar = colors.Red,
     Function = {fg = c.blue, fmt = cfg.code_style.functions}, -- this for function.call
     Operator = colors.Red,
-    Title = colors.Cyan,
+    Title = colors.Blue,
     Tag = colors.Green,
     Delimiter = colors.LightGrey,
     Comment = {fg = c.light_grey_comment, fmt = cfg.code_style.comments},
