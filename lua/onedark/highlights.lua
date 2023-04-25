@@ -196,7 +196,7 @@ if vim.api.nvim_call_function("has", {"nvim-0.9"}) == 1 then
         ["@text.strike"] = {fg = c.fg, fmt = 'strikethrough'},
         ["@text.title"] = {fg = c.orange, fmt = 'bold'},
         ["@text.literal"] = colors.Green,
-        ["@text.uri"] = {fg = c.cyan, fmt = 'underline'},
+        ["@text.uri"] = {fg = c.light_blue, fmt = 'underline'}, -- for hyperlinks
         ["@text.todo"] = {fg = c.red, fmt = cfg.code_style.comments},
         ["@text.math"] = colors.Fg,
         ["@text.reference"] = colors.Blue,
@@ -517,7 +517,7 @@ hl.plugins.nvim_tree = {
     NvimTreeImageFile = {fg = c.purple_e},
     NvimTreeSymlink = c.purple_e,
     NvimTreeFolderName = c.blue,
-    NvimTreeBookmark = {fg = c.blue},
+    NvimTreeBookmark = {fg = c.blue}
 }
 hl.plugins.telescope = {
     TelescopeBorder = {fg = c.white},
