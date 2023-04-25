@@ -517,7 +517,7 @@ hl.plugins.nvim_tree = {
     NvimTreeImageFile = {fg = c.purple_e},
     NvimTreeSymlink = c.purple_e,
     NvimTreeFolderName = c.blue,
-    NvimTreeBookmark = c.blue
+    NvimTreeBookmark = {fg = c.blue},
 }
 hl.plugins.telescope = {
     TelescopeBorder = {fg = c.white},
