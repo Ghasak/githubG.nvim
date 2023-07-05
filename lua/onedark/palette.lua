@@ -19,11 +19,12 @@ return {
         purple = "#dcbdfb",
         purple_e = "#dcbdfb",
         green = "#B2C9AB", -- Laurel Green
-        orange = "#f69d50",
+        --orange = "#f69d50",
+        orange = "#ebad86",
         blue = "#6cb6ff",
-        yellow = "#f69d50",
+        yellow = "#ebad86",
         cyan = "#81cad2",
-        cyan_e = "#f69d50",
+        cyan_e = "#ebad86",
         red = "#f47067",
         grey = "#5c6370",
         light_grey = "#848b98",
@@ -38,7 +39,7 @@ return {
         -- Added colors
         Isbelline = "#F2EFEA",
         Platinum = "#E7E5DF",
-        bright_orange = "#ff8800", -- define a new color
+        bright_orange = "#ebad86", -- define a new color
         light_orange = "#FFC53A",
         light_green = "#C6EBC5",
         light_Fiery_Rose = "#F56476",
