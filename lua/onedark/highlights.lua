@@ -660,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { fg = c.moonstone, bg = c.transparent_grey, fmt = "bold" },
+	markdownCode = { fg = c.Charm_Pink, bg = c.transparent_grey, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
