@@ -78,6 +78,7 @@ return {
 		light_blue = "#96d0ff",
 		light_grey_comment = "#768390",
 		amaranth_pink = "#E49AB0",
+    pale_dogwood= "#FFD4CA",
 	},
 	-- dark = {
 	--     black = "#181a1f",

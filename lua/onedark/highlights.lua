@@ -150,7 +150,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 	hl.treesitter = {
 		["@annotation"] = colors.Fg,
 		["@attribute"] = { fg = c.purple }, -- such as decorators
-    ["@attribute.typescript"] = colors.Blue,
+		["@attribute.typescript"] = colors.Blue,
 		["@boolean"] = colors.Blue,
 		["@character"] = colors.Orange,
 		["@comment"] = {
@@ -218,6 +218,13 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@type.builtin"] = colors.Yellow,
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
+    -- for markdown heading
+		["@heading1"] = { fg = c.red, fmt = "bold" },
+		["@heading2"] = { fg = c.purple, fmt = "bold" },
+		["@heading3"] = { fg = c.orange, fmt = "bold" },
+		["@heading4"] = { fg = c.red, fmt = "bold" },
+		["@heading5"] = { fg = c.purple, fmt = "bold" },
+		["@heading6"] = { fg = c.orange, fmt = "bold" },
 	}
 else
 	hl.treesitter = {
@@ -654,7 +661,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = {fg =c.amaranth_pink , bg = c.grey  , fmt = "bold"} ,
+	markdownCode = { fg = c.pale_dogwood, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
@@ -677,7 +684,7 @@ hl.langs.markdown = {
 	markdownRule = colors.Purple,
 	markdownUrl = { fg = c.blue, fmt = "underline" },
 	markdownUrlDelimiter = colors.Grey,
-	markdownUrlTitleDelimiter = {fg =c.amaranth_pink   , fmt = "bold"} ,
+	markdownUrlTitleDelimiter = { fg = c.amaranth_pink, fmt = "bold" },
 }
 
 hl.langs.php = {
