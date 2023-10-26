@@ -218,11 +218,11 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
     -- for markdown heading
-		["@text.title"] = { fg = c.orange, fmt = "bold" },
+		["@text.title"] = { fg = c.amaranth_pink, fmt = "bold" },
 		["@text.title.2"] = { fg = c.purple, fmt = "bold" },
-		["@text.title.3"] = { fg = c.orange, fmt = "bold" },
+		["@text.title.3"] = { fg = c.paynes_gray, fmt = "bold" },
 		["@text.title.4"] = { fg = c.red, fmt = "bold" },
-		["@text.title.5"] = { fg = c.purple, fmt = "bold" },
+		["@text.title.5"] = { fg = c.amaranth_pink, fmt = "bold" },
 		["@text.title.6"] = { fg = c.orange, fmt = "bold" },
 	}
 else
@@ -660,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { bg = c.moonstone, fmt = "bold" },
+	markdownCode = { fg = c.moonstone, bg = c.transparent_grey, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
