@@ -83,7 +83,10 @@ return {
     paynes_gray = "#496A81",
     moonstone = "#66999B",
     mimi_pink = "#EFCFE3",
-    cool_gray = "#A4A8D1"
+    cool_gray = "#A4A8D1",
+    indian_red = "#CD5D67",
+    lavender_pink = "#FFC4EB",
+    caribbean_current = "#026C7C",
 	},
 	-- dark = {
 	--     black = "#181a1f",
