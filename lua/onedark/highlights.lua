@@ -218,12 +218,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		-- for markdown heading
-		["@text.title"] =     { bg = c.amaranth_pink, fmt = "bold" },
-		["@text.title.2"] = { bg = c.purple, fmt = "bold" },
-		["@text.title.3"] = { bg = c.cool_gray, fmt = "bold" },
-		["@text.title.4"] = { bg = c.red, fmt = "bold" },
-		["@text.title.5"] = { bg = c.amaranth_pink, fmt = "bold" },
-		["@text.title.6"] = { bg = c.orange, fmt = "bold" },
+		["@text.title"]   = { fg = c.amaranth_pink, bg = c.transparent_grey,  fmt = "bold" },
+		["@text.title.2"] = { fg = c.purple, bg = c.transparent_grey, fmt = "bold" },
+		["@text.title.3"] = { fg = c.cool_gray, bg = c.transparent_grey, fmt = "bold" },
+		["@text.title.4"] = { fg = c.red, bg = c.transparent_grey, fmt = "bold" },
+		["@text.title.5"] = { fg = c.amaranth_pink, bg = c.transparent_grey, fmt = "bold" },
+		["@text.title.6"] = { fg = c.orange, bg = c.transparent_grey, fmt = "bold" },
 	}
 else
 	hl.treesitter = {
