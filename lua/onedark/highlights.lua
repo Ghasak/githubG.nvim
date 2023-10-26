@@ -150,6 +150,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 	hl.treesitter = {
 		["@annotation"] = colors.Fg,
 		["@attribute"] = { fg = c.purple }, -- such as decorators
+    ["@attribute.typescript"] = colors.Blue,
 		["@boolean"] = colors.Blue,
 		["@character"] = colors.Orange,
 		["@comment"] = {
@@ -201,7 +202,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@text.underline"] = { fg = c.fg, fmt = "underline" },
 		["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
 		["@text.title"] = { fg = c.orange, fmt = "bold" },
-		["@text.literal"] = colors.Green,
+		["@text.literal"] = c.purple,
 		["@text.uri"] = { fg = c.light_blue, fmt = "underline" }, -- for hyperlinks
 		["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
 		["@text.math"] = colors.Fg,
@@ -648,7 +649,7 @@ hl.langs.cpp = {
 	cppTSConstMacro = colors.Purple,
 	cppTSOperator = colors.Purple,
 }
-
+-- Overwritten by treesitter
 hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
