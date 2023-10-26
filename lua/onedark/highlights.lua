@@ -218,12 +218,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		-- for markdown heading
-		["@text.title"] =   { fg = c.amaranth_pink, bg = c.black,  fmt = "bold"  },
-		["@text.title.2"] = { fg = c.purple,        bg = c.black,  fmt = "bold"  },
-		["@text.title.3"] = { fg = c.cool_gray,     bg = c.black,  fmt = "bold"  },
-		["@text.title.4"] = { fg = c.blue,          bg = c.black,  fmt = "bold"  },
-		["@text.title.5"] = { fg = c.amaranth_pink, bg = c.black,  fmt = "bold"  },
-		["@text.title.6"] = { fg = c.orange,        bg = c.black,  fmt = "bold"  },
+		["@text.title"] =   { fg = c.amaranth_pink, bg = c.github_symbol,  fmt = "bold"  },
+		["@text.title.2"] = { fg = c.purple,        bg = c.github_symbol,  fmt = "bold"  },
+		["@text.title.3"] = { fg = c.cool_gray,     bg = c.github_symbol,  fmt = "bold"  },
+		["@text.title.4"] = { fg = c.blue,          bg = c.github_symbol,  fmt = "bold"  },
+		["@text.title.5"] = { fg = c.amaranth_pink, bg = c.github_symbol,  fmt = "bold"  },
+		["@text.title.6"] = { fg = c.orange,        bg = c.github_symbol,  fmt = "bold"  },
 	}
 else
 	hl.treesitter = {
