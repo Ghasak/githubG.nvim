@@ -81,6 +81,7 @@ return {
     pale_dogwood= "#FFD4CA",
     paynes_gray = "#496A81",
     moonstone = "#66999B",
+    mimi_pink = "#EFCFE3",
 	},
 	-- dark = {
 	--     black = "#181a1f",

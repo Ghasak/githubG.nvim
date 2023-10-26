@@ -201,7 +201,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@text.emphasis"] = { fg = c.fg, fmt = "italic" },
 		["@text.underline"] = { fg = c.fg, fmt = "underline" },
 		["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
-		["@text.literal"] = c.paynes_gray,
+		["@text.literal"] = c.mimi_pink,
 		["@text.uri"] = { fg = c.light_blue, fmt = "underline" }, -- for hyperlinks
 		["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
 		["@text.math"] = colors.Fg,
@@ -660,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { fg = c.Buff, bg = c.transparent_grey, fmt = "bold" },
+	markdownCode = { fg = c.mimi_pink, bg = c.transparent_grey, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
