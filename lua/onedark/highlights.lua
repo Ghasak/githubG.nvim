@@ -653,7 +653,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = colors.Green,
+	markdownCode = {fg =c.amaranth_pink , bg = c.grey  , fmt = "bold"} ,
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
@@ -676,7 +676,7 @@ hl.langs.markdown = {
 	markdownRule = colors.Purple,
 	markdownUrl = { fg = c.blue, fmt = "underline" },
 	markdownUrlDelimiter = colors.Grey,
-	markdownUrlTitleDelimiter = {fg =c.amaranth_pink , bg =c.grey , fmt = "bold"} ,
+	markdownUrlTitleDelimiter = {fg =c.amaranth_pink   , fmt = "bold"} ,
 }
 
 hl.langs.php = {
