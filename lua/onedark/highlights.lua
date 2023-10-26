@@ -201,7 +201,6 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@text.emphasis"] = { fg = c.fg, fmt = "italic" },
 		["@text.underline"] = { fg = c.fg, fmt = "underline" },
 		["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
-		["@text.title"] = { fg = c.orange, fmt = "bold" },
 		["@text.literal"] = c.paynes_gray,
 		["@text.uri"] = { fg = c.light_blue, fmt = "underline" }, -- for hyperlinks
 		["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
@@ -219,12 +218,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
     -- for markdown heading
-		["@heading1"] = { fg = c.red, fmt = "bold" },
-		["@heading2"] = { fg = c.purple, fmt = "bold" },
-		["@heading3"] = { fg = c.orange, fmt = "bold" },
-		["@heading4"] = { fg = c.red, fmt = "bold" },
-		["@heading5"] = { fg = c.purple, fmt = "bold" },
-		["@heading6"] = { fg = c.orange, fmt = "bold" },
+		["@text.title"] = { fg = c.orange, fmt = "bold" },
+		["@text.title.2"] = { fg = c.purple, fmt = "bold" },
+		["@text.title.3"] = { fg = c.orange, fmt = "bold" },
+		["@text.title.4"] = { fg = c.red, fmt = "bold" },
+		["@text.title.5"] = { fg = c.purple, fmt = "bold" },
+		["@text.title.6"] = { fg = c.orange, fmt = "bold" },
 	}
 else
 	hl.treesitter = {
@@ -661,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { bg = c.paynes_gray, fmt = "bold" },
+	markdownCode = { bg = c.moonstone, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
