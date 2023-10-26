@@ -202,7 +202,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@text.underline"] = { fg = c.fg, fmt = "underline" },
 		["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
 		["@text.title"] = { fg = c.orange, fmt = "bold" },
-		["@text.literal"] = c.purple,
+		["@text.literal"] = c.paynes_gray,
 		["@text.uri"] = { fg = c.light_blue, fmt = "underline" }, -- for hyperlinks
 		["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
 		["@text.math"] = colors.Fg,
