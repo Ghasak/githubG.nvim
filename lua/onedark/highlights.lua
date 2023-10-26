@@ -218,12 +218,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
 		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
 		-- for markdown heading
-		["@text.title"] =   { bg = c.amaranth_pink, fg = c.black,  fmt = "bold"  },
-		["@text.title.2"] = { bg = c.purple,        fg = c.black,  fmt = "bold"  },
-		["@text.title.3"] = { bg = c.cool_gray,     fg = c.black,  fmt = "bold"  },
-		["@text.title.4"] = { bg = c.blue,          fg = c.black,  fmt = "bold"  },
-		["@text.title.5"] = { bg = c.amaranth_pink, fg = c.black,  fmt = "bold"  },
-		["@text.title.6"] = { bg = c.orange,        fg = c.black,  fmt = "bold"  },
+		["@text.title"] =   { fg = c.amaranth_pink, bg = c.black,  fmt = "bold"  },
+		["@text.title.2"] = { fg = c.purple,        bg = c.black,  fmt = "bold"  },
+		["@text.title.3"] = { fg = c.cool_gray,     bg = c.black,  fmt = "bold"  },
+		["@text.title.4"] = { fg = c.blue,          bg = c.black,  fmt = "bold"  },
+		["@text.title.5"] = { fg = c.amaranth_pink, bg = c.black,  fmt = "bold"  },
+		["@text.title.6"] = { fg = c.orange,        bg = c.black,  fmt = "bold"  },
 	}
 else
 	hl.treesitter = {
@@ -660,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { fg = c.mimi_pink, bg = c.transparent_grey, fmt = "bold" },
+	markdownCode = { fg = c.white, bg = c.github_symbol, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
