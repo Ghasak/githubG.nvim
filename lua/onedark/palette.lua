@@ -87,6 +87,7 @@ return {
     indian_red = "#CD5D67",
     lavender_pink = "#FFC4EB",
     caribbean_current = "#026C7C",
+    columbia_blue = "#BAD7F2",
 	},
 	-- dark = {
 	--     black = "#181a1f",
