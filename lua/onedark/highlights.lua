@@ -220,7 +220,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
     -- for markdown heading
 		["@text.title"] = { fg = c.amaranth_pink, fmt = "bold" },
 		["@text.title.2"] = { fg = c.purple, fmt = "bold" },
-		["@text.title.3"] = { fg = c.paynes_gray, fmt = "bold" },
+		["@text.title.3"] = { fg = c.Buff, fmt = "bold" },
 		["@text.title.4"] = { fg = c.red, fmt = "bold" },
 		["@text.title.5"] = { fg = c.amaranth_pink, fmt = "bold" },
 		["@text.title.6"] = { fg = c.orange, fmt = "bold" },
@@ -660,7 +660,7 @@ hl.langs.markdown = {
 	markdownBlockquote = colors.Grey,
 	markdownBold = { fg = c.none, fmt = "bold" },
 	markdownBoldDelimiter = colors.Grey,
-	markdownCode = { fg = c.Charm_Pink, bg = c.transparent_grey, fmt = "bold" },
+	markdownCode = { fg = c.Buff, bg = c.transparent_grey, fmt = "bold" },
 	markdownCodeBlock = colors.Green,
 	markdownCodeDelimiter = colors.Yellow,
 	markdownH1 = { fg = c.red, fmt = "bold" },
