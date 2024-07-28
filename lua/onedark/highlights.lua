@@ -108,8 +108,11 @@ hl.common = {
 	TextYankPost_style = { fg = c.black, bg = c.light_orange, fmt = "bold" },
 	Floaterm = { fg = c.black, bg = c.black }, -- terminal color for nvim
 	FidgetTitle = { fg = c.Charm_Pink, bg = c.Blush },
+  -- Introduce in neovim v.10
   LspInlayHint = { fg = c.blue, bg = c.black },
 	WinSeparator = { fg = c.blue, bg = c.black },
+  WinBar = {bg = c.black},
+  WinBarNC = {bg = c.black},
 
 }
 
