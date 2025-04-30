@@ -95,7 +95,7 @@ hl.common = {
 	TabLineFill = { fg = c.black, bg = c.black },
 	TabLineSel = { fg = c.bg0, bg = c.black },
 	VertSplit = { fg = c.blue, bg = c.black },
-	Visual = { fg = c.Davys_Grey, bg = c.Charm_Pink, fmt = "bold" },
+	Visual = { fg = c.Davys_Grey, bg = c.visual_selector_color, fmt = "bold" },
 	VisualNOS = { fg = c.none, bg = c.bg2, fmt = "underline" },
 	QuickFixLine = { fg = c.blue, fmt = "underline" },
 	Debug = { fg = c.yellow },
@@ -105,7 +105,7 @@ hl.common = {
 	FloatBorder = { fg = c.white, bg = c.black },
 	NormalFloat = { fg = c.fg, bg = c.black },
 	-- Added colortheme
-	TextYankPost_style = { fg = c.black, bg = c.light_orange, fmt = "bold" },
+	TextYankPost_style = { fg = c.black, bg = c.yanking_color, fmt = "bold" },
 	Floaterm = { fg = c.black, bg = c.black }, -- terminal color for nvim
 	FidgetTitle = { fg = c.Charm_Pink, bg = c.Blush },
   -- Introduce in neovim v.10
@@ -152,7 +152,7 @@ hl.syntax = {
 	Todo = { fg = c.red, fmt = cfg.code_style.comments },
 }
 
-if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_function("has", { "nvim-0.10" }) == 1 then
+if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_function("has", { "nvim-0.11" }) == 1 then
 	hl.treesitter = {
 		["@annotation"] = colors.Fg,
 		["@attribute"] = { fg = c.purple }, -- such as decorators

@@ -46,6 +46,8 @@ return {
 		light_Fiery_Rose = "#F56476",
 		Blush = "#DC6486",
 		Charm_Pink = "#E18CA4",
+    yanking_color= "#fc92b3",
+    visual_selector_color = "#c1b2eb",
 		Sliver_Pink = "#CEB4B9",
 		Cambridge_blue = "#92B4A7",
 		Granny_Smith_Apple = "#B2EF9B",
