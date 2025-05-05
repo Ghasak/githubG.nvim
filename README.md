@@ -31,7 +31,7 @@ anyone to use it.
 - [x] By `2023-04-23`, It seems up to this point, there is a conflict for the `Structure` vs
       `namespaces` in the language `Rust` for the colors highlights. Check both names in the `highlight.lua` file.
 
-- [ ] Is it possible to constumize a specific programming language with the its
+- [x] Is it possible to constumize a specific programming language with the its
       own treesitter refelect to spepcifc portion of `lsp` elements?
 
 - [x] Solved the problem of removing the `pack.load` from the original theme,

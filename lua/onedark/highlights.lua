@@ -190,9 +190,9 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_f
 		["@parameter"] = { fg = c.fg }, -- colors.Red,
 		["@parameter.reference"] = colors.Fg,
 		-- ["@property"] = colors.Cyan,
-		["@property"] = colors.Fg,
-		["@punctuation.delimiter"] = colors.LightGrey,
-		["@punctuation.bracket"] = colors.LightGrey,
+		["@property"] = colors.white,
+		["@punctuation.delimiter"] = colors.white,
+		["@punctuation.bracket"] = colors.white,
 		["@punctuation.special"] = colors.Red,
 		["@repeat"] = { fg = c.red, fmt = cfg.code_style.keywords },
 		["@string"] = { fg = c.light_blue, fmt = cfg.code_style.strings },
@@ -221,8 +221,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_f
 		["@danger"] = colors.Fg,
 		["@type"] = colors.Yellow,
 		["@type.builtin"] = colors.Yellow,
-		["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
-		["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
+		-- ["@variable"] = { fg = c.fg, fmt = cfg.code_style.variables },
+		-- ["@variable.builtin"] = { fg = c.fg, fmt = cfg.code_style.variables },
+		["@variable"] = { fg = c.white, fmt = cfg.code_style.variables },
+		["@variable.builtin"] = { fg = c.white, fmt = cfg.code_style.variables },
+
+
 		-- for markdown heading
 		["@text.title"] = { fg = c.amaranth_pink, bg = c.github_symbol, fmt = "bold" },
 		["@text.title.2"] = { fg = c.purple, bg = c.github_symbol, fmt = "bold" },
