@@ -93,7 +93,7 @@ return {
 		columbia_blue = "#BAD7F2",
 	},
 	gdark = {
-		black = "#2d333b",
+		black = "#212830",
 		white = "#eef6fb",
 		white_bright = "#eef6fb",
 		beautiful_black = "#343a43",
