@@ -2,6 +2,7 @@ local c = require("onedark.colors")
 
 local cfg = vim.g.onedark_config
 local util = require("onedark.util")
+local light = cfg.style == "glight"
 
 local M = {}
 local hl = { langs = {}, plugins = {} }
@@ -36,28 +37,29 @@ local colors = {
 }
 hl.common = {
 	Normal = { fg = c.white_bright, bg = cfg.transparent and c.none or c.black },
-	Terminal = { fg = c.black, bg = cfg.transparent and c.none or c.black },
+	Terminal = { fg = light and c.fg or c.black, bg = cfg.transparent and c.none or c.black },
 	EndOfBuffer = {
-		fg = cfg.ending_tildes and c.black or c.black,
+		fg = light and c.grey or (cfg.ending_tildes and c.black or c.black),
 		bg = cfg.transparent and c.black or c.black,
 	},
-	FoldColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
-	Folded = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
-	SignColumn = { fg = c.black, bg = cfg.transparent and c.none or c.black },
+	FoldColumn = { fg = light and c.blue or c.fg, bg = cfg.transparent and c.none or c.bg1 },
+	Folded = { fg = light and c.blue or c.fg, bg = cfg.transparent and c.none or c.bg1 },
+	SignColumn = { fg = light and c.grey or c.black, bg = cfg.transparent and c.none or c.black },
 	ToolbarLinek = { fg = c.fg },
-	TermCursor = { bg = c.fg, fg = c.blue, fmt = "reverse" },
-	Cursor = { fmt = "reverse" },
-	vCursor = { fmt = "reverse" },
-	iCursor = { fmt = "reverse" },
-	lCursor = { fmt = "reverse" },
-	CursorIM = { fmt = "reverse" },
-	CursorColumn = { bg = c.bg1 },
-	CursorLine = { bg = c.black },
-	ColorColumn = { bg = c.black },
+	TermCursor = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { bg = c.fg, fg = c.blue, fmt = "reverse" },
+	Cursor = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { fmt = "reverse" },
+	vCursor = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { fmt = "reverse" },
+	iCursor = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { fmt = "reverse" },
+	lCursor = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { fmt = "reverse" },
+	CursorIM = light and { fg = c.cursor_fg, bg = c.cursor_bg } or { fmt = "reverse" },
+	CursorColumn = { bg = c.cursorline_bg },
+	-- c.black equals the Normal bg in every style, so the cursor line never showed. Light: GitHub blue tint.
+	CursorLine = { bg = light and c.diff_change or c.bg1 },
+	ColorColumn = { bg = light and c.bg2 or c.black },
 	CursorLineNr = { fg = c.blue, fmt = "bold" },
 	LineNr = { fg = c.grey },
 	Conceal = { fg = c.grey, bg = c.bg1 },
-	DiffAdd = { fg = c.red, bg = c.black },
+	DiffAdd = { fg = light and c.green or c.red, bg = light and c.diff_add or c.black },
 	DiffChange = { fg = c.none, bg = c.diff_change },
 	DiffDelete = { fg = c.none, bg = c.diff_delete },
 	DiffText = { fg = c.none, bg = c.diff_text },
@@ -77,7 +79,7 @@ hl.common = {
 	NonText = { fg = c.grey },
 	Whitespace = { fg = c.grey },
 	SpecialKey = { fg = c.grey },
-	Pmenu = { fg = c.fg, bg = c.black },
+	Pmenu = { fg = c.fg, bg = c.menu_bg },
 	PmenuSbar = { fg = c.none, bg = c.bg1 },
 	PmenuSel = { fg = c.bg0, bg = c.bg_blue },
 	WildMenu = { fg = c.bg0, bg = c.blue },
@@ -88,12 +90,12 @@ hl.common = {
 	SpellLocal = { fg = c.blue, fmt = "underline", sp = c.blue },
 	SpellRare = { fg = c.purple, fmt = "underline", sp = c.purple },
 	StatusLine = { fg = c.fg, bg = c.bg2 },
-	StatusLineTerm = { fg = c.black, bg = c.black },
+	StatusLineTerm = { fg = light and c.fg or c.black, bg = c.panel },
 	StatusLineNC = { fg = c.grey, bg = c.bg1 },
-	StatusLineTermNC = { fg = c.black, bg = c.black },
-	TabLine = { fg = c.black, bg = c.black },
-	TabLineFill = { fg = c.black, bg = c.black },
-	TabLineSel = { fg = c.bg0, bg = c.black },
+	StatusLineTermNC = { fg = light and c.grey or c.black, bg = c.panel },
+	TabLine = { fg = light and c.grey or c.black, bg = c.panel },
+	TabLineFill = { fg = light and c.grey or c.black, bg = c.panel },
+	TabLineSel = { fg = light and c.fg or c.bg0, bg = c.black },
 	VertSplit = { fg = c.blue, bg = c.black },
 	Visual = { fg = c.Davys_Grey, bg = c.visual_selector_color, fmt = "bold" },
 	VisualNOS = { fg = c.none, bg = c.bg2, fmt = "underline" },
@@ -102,17 +104,17 @@ hl.common = {
 	debugPC = { fg = c.black, bg = c.green },
 	debugBreakpoint = { fg = c.black, bg = c.red },
 	ToolbarButton = { fg = c.black, bg = c.bg_blue },
-	FloatBorder = { fg = c.white, bg = c.black },
-	NormalFloat = { fg = c.fg, bg = c.black },
+	FloatBorder = { fg = light and c.grey or c.white, bg = c.panel },
+	NormalFloat = { fg = c.fg, bg = c.panel },
 	-- Added colortheme
 	TextYankPost_style = { fg = c.black, bg = c.yanking_color, fmt = "bold" },
-	Floaterm = { fg = c.black, bg = c.black }, -- terminal color for nvim
+	Floaterm = { fg = light and c.fg or c.black, bg = c.black }, -- terminal color for nvim
 	FidgetTitle = { fg = c.Charm_Pink, bg = c.Blush },
   -- Introduce in neovim v.10
   LspInlayHint = { fg = c.blue, bg = c.black },
 	WinSeparator = { fg = c.blue, bg = c.black },
-  WinBar = {bg = c.black},
-  WinBarNC = {bg = c.black},
+  WinBar = {bg = c.panel},
+  WinBarNC = {bg = c.panel},
 
 }
 
@@ -165,8 +167,8 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_f
 		},
 		["@conditional"] = { fg = c.red, fmt = cfg.code_style.keywords },
 		["@constant"] = { fg = c.Light_Yellow },
-		["@constant.builtin"] = colors.Light_Yellow,
-		["@constant.macro"] = colors.Light_Yellow,
+		["@constant.builtin"] = { fg = c.Light_Yellow },
+		["@constant.macro"] = { fg = c.Light_Yellow },
 		["@constructor"] = { fg = c.purple_e, fmt = "bold" },
 		["@error"] = colors.Fg,
 		["@exception"] = colors.Purple,
@@ -177,12 +179,12 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_f
 		["@function.macro"] = { fg = c.purple_e, fmt = cfg.code_style.functions },
 		["@function.call"] = { fg = c.blue, fmt = cfg.code_style.functions }, -- this was not inlcuded
 		["@method.call"] = { fg = c.blue, fmt = cfg.code_style.functions }, -- this was not inlcuded
-		["@include"] = colors.red,
+		["@include"] = colors.Red,
 		["@keyword"] = { fg = c.red, fmt = cfg.code_style.keywords },
 		["@keyword.function"] = { fg = c.red, fmt = cfg.code_style.functions },
 		["@keyword.operator"] = { fg = c.red, fmt = cfg.code_style.keywords },
 		["@label"] = colors.Red,
-		["@method"] = c.purple_e,
+		["@method"] = { fg = c.purple_e },
 		["@namespace"] = { fg = c.orange },
 		["@none"] = colors.Fg,
 		["@number"] = colors.Blue,
@@ -207,7 +209,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 or vim.api.nvim_call_f
 		["@text.emphasis"] = { fg = c.fg, fmt = "italic" },
 		["@text.underline"] = { fg = c.fg, fmt = "underline" },
 		["@text.strike"] = { fg = c.fg, fmt = "strikethrough" },
-		["@text.literal"] = c.mimi_pink,
+		["@text.literal"] = { fg = c.mimi_pink },
 		["@text.uri"] = { fg = c.light_blue, fmt = "underline" }, -- for hyperlinks
 		["@text.todo"] = { fg = c.red, fmt = cfg.code_style.comments },
 		["@text.math"] = colors.Fg,
@@ -317,29 +319,29 @@ hl.plugins.lsp = {
 
 	DiagnosticError = { fg = c.light_Fiery_Rose },
 	DiagnosticHint = { fg = c.Buff },
-	DiagnosticInfo = { fg = c.bright_navy_blue },
+	DiagnosticInfo = { fg = c.birght_navy_blue },
 	DiagnosticWarn = { fg = c.apricot },
 
-	DiagnosticVirtualTextError = { bg = c.black, fg = c.light_Fiery_Rose },
+	DiagnosticVirtualTextError = { bg = c.panel, fg = c.light_Fiery_Rose },
 	-- DiagnosticVirtualTextError = {
 	--     bg = cfg.diagnostics.background and
 	--         util.darken(diagnostics_error_color, 0.1, c.bg0) or c.black,
 	--     fg =c.light_Fierry_Rose
 	-- },
-	DiagnosticVirtualTextWarn = { bg = c.black, fg = c.apricot },
+	DiagnosticVirtualTextWarn = { bg = c.panel, fg = c.apricot },
 	-- DiagnosticVirtualTextWarn = {
 	--     bg = cfg.diagnostics.background and
 	--         util.darken(diagnostics_warn_color, 0.1, c.bg0) or c.black,
 	--     fg =c.apricot
 	-- },
-	DiagnosticVirtualTextInfo = { bg = c.black, fg = c.birght_navy_blue },
+	DiagnosticVirtualTextInfo = { bg = c.panel, fg = c.birght_navy_blue },
 	-- DiagnosticVirtualTextInfo = {
 	--     bg = cfg.diagnostics.background and
 	--         util.darken(diagnostics_info_color, 0.1, c.bg0) or c.black,
 	--     fg = c.bright_navy_blue
 	-- },
 
-	DiagnosticVirtualTextHint = { bg = c.black, fg = c.Buff },
+	DiagnosticVirtualTextHint = { bg = c.panel, fg = c.Buff },
 	-- DiagnosticVirtualTextHint = {
 	--     bg = cfg.diagnostics.background and
 	--         util.darken(diagnostics_hint_color, 0.1, c.bg0) or c.black,
@@ -363,9 +365,9 @@ hl.plugins.lsp = {
 		sp = c.yellow,
 	},
 
-	LspReferenceText = { bg = c.bg2 },
-	LspReferenceWrite = { bg = c.bg2 },
-	LspReferenceRead = { bg = c.bg2 },
+	LspReferenceText = { bg = light and "#79c0ff" or c.bg2, fmt = light and "bold" },
+	LspReferenceWrite = { bg = light and "#79c0ff" or c.bg2, fmt = light and "bold" },
+	LspReferenceRead = { bg = light and "#79c0ff" or c.bg2, fmt = light and "bold" },
 
 	LspCodeLens = { fg = c.grey, fmt = cfg.code_style.comments },
 	LspCodeLensSeparator = { fg = c.grey },
@@ -392,8 +394,8 @@ hl.plugins.ale = {
 
 hl.plugins.barbar = {
 	BufferCurrent = { fmt = "bold" },
-	BufferCurrentMod = { fg = c.black, fmt = "bold,italic" },
-	BufferCurrentSign = { fg = c.black, bg = c.black },
+	BufferCurrentMod = { fg = light and c.fg or c.black, fmt = "bold,italic" },
+	BufferCurrentSign = { fg = light and c.blue or c.black, bg = c.black },
 	BufferInactiveMod = { fg = c.light_grey, bg = c.black, fmt = "italic" },
 	BufferVisible = { fg = c.light_grey, bg = c.black },
 	BufferVisibleMod = { fg = c.yellow, bg = c.black, fmt = "italic" },
@@ -434,7 +436,7 @@ hl.plugins.gitgutter = {
 hl.plugins.hop = {
 	HopNextKey = { fg = c.red, fmt = "bold" },
 	HopNextKey1 = { fg = c.cyan, fmt = "bold" },
-	HopNextKey2 = { fg = util.darken(c.blue, 0.7) },
+	HopNextKey2 = { fg = light and util.blend(c.blue, c.bg0, 0.85) or util.darken(c.blue, 0.7) },
 	HopUnmatched = colors.Grey,
 }
 
@@ -445,16 +447,16 @@ hl.plugins.diffview = {
 	DiffviewFilePanelFileName = colors.Fg,
 	DiffviewNormal = hl.common.Normal,
 	DiffviewCursorLine = hl.common.CursorLine,
-	DiffviewVertSplit = { fg = c.light_green, bf = c.black },
+	DiffviewVertSplit = { fg = c.light_green, bg = c.panel },
 	DiffviewSignColumn = hl.common.SignColumn,
 	DiffviewStatusLine = hl.common.StatusLine,
 	DiffviewStatusLineNC = hl.common.StatusLineNC,
 	DiffviewEndOfBuffer = hl.common.EndOfBuffer,
 	DiffviewFilePanelRootPath = colors.Grey,
 	DiffviewFilePanelPath = colors.Grey,
-	DiffviewFilePanelInsertions = { fg = c.light_green, bf = c.black },
+	DiffviewFilePanelInsertions = { fg = c.light_green, bg = c.panel },
 	DiffviewFilePanelDeletions = colors.Red,
-	DiffviewStatusAdded = { fg = c.light_green, bf = c.black },
+	DiffviewStatusAdded = { fg = c.light_green, bg = c.panel },
 	DiffviewStatusUntracked = colors.Blue,
 	DiffviewStatusModified = colors.Blue,
 	DiffviewStatusRenamed = colors.Blue,
@@ -467,24 +469,31 @@ hl.plugins.diffview = {
 }
 
 hl.plugins.gitsigns = {
-	GitSignsAdd = c.blue,
-	GitSignsAddLn = c.blue,
-	GitSignsAddNr = c.blue,
-	GitSignsChange = colors.Blue,
-	GitSignsChangeLn = colors.Blue,
-	GitSignsChangeNr = colors.Blue,
-	GitSignsDelete = colors.Red,
-	GitSignsDeleteLn = colors.Red,
-	GitSignsDeleteNr = colors.Red,
+	-- glight: the GitHub Primer sign colours (same values the nvim config patched in until now)
+	GitSignsAdd = { fg = light and c.green or c.blue, bg = light and c.panel },
+	GitSignsAddLn = { fg = light and c.green or c.blue, bg = light and c.panel },
+	GitSignsAddNr = { fg = light and c.green or c.blue, bg = light and c.panel },
+	GitSignsChange = { fg = light and c.yellow or c.blue, bg = light and c.panel },
+	GitSignsChangeLn = { fg = light and c.yellow or c.blue, bg = light and c.panel },
+	GitSignsChangeNr = { fg = light and c.yellow or c.blue, bg = light and c.panel },
+	GitSignsChangedelete = { fg = light and c.orange or c.blue, bg = light and c.panel },
+	GitSignsChangedeleteLn = { fg = light and c.orange or c.blue, bg = light and c.panel },
+	GitSignsChangedeleteNr = { fg = light and c.orange or c.blue, bg = light and c.panel },
+	GitSignsDelete = { fg = c.red, bg = light and c.panel },
+	GitSignsDeleteLn = { fg = c.red, bg = light and c.panel },
+	GitSignsDeleteNr = { fg = c.red, bg = light and c.panel },
+	GitSignsTopdelete = { fg = c.red, bg = light and c.panel },
+	GitSignsTopdeleteLn = { fg = c.red, bg = light and c.panel },
+	GitSignsTopdeleteNr = { fg = c.red, bg = light and c.panel },
 }
 
 hl.plugins.neo_tree = {
 	NeoTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
 	NeoTreeNormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
-	NeoTreeVertSplit = { fg = c.bg1, bg = cfg.transparent and c.none or c.bg1 },
-	NeoTreeWinSeparator = { fg = c.bg1, bg = cfg.transparent and c.none or c.bg1 },
+	NeoTreeVertSplit = { fg = light and c.grey or c.bg1, bg = cfg.transparent and c.none or c.bg1 },
+	NeoTreeWinSeparator = { fg = light and c.grey or c.bg1, bg = cfg.transparent and c.none or c.bg1 },
 	NeoTreeEndOfBuffer = {
-		fg = cfg.ending_tildes and c.bg2 or c.bg_d,
+		fg = light and c.grey or (cfg.ending_tildes and c.bg2 or c.bg_d),
 		bg = cfg.transparent and c.none or c.bg_d,
 	},
 	NeoTreeRootName = { fg = c.orange, fmt = "bold" },
@@ -517,27 +526,44 @@ hl.plugins.neotest = {
 }
 
 hl.plugins.nvim_tree = {
-	NvimTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.black },
+	NvimTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.panel },
 	NvimTreeVertSplit = {
-		fg = c.white,
-		bg = cfg.transparent and c.none or c.black,
+		fg = light and c.grey or c.white,
+		bg = cfg.transparent and c.none or c.panel,
 	},
 	NvimTreeEndOfBuffer = {
 		fg = cfg.ending_tildes and c.bg2 or c.white,
-		bg = cfg.transparent and c.none or c.black,
+		bg = cfg.transparent and c.none or c.panel,
 	},
 	NvimTreeRootFolder = { fg = c.orange, fmt = "bold" },
 	NvimTreeGitDirty = colors.Yellow,
-	NvimTreeGitNew = { fg = c.white, bg = c.black },
+	NvimTreeGitNew = { fg = light and c.green or c.white, bg = c.panel },
 	NvimTreeGitDeleted = colors.Red,
 	NvimTreeSpecialFile = { fg = c.yellow, fmt = "underline" },
 	NvimTreeIndentMarker = colors.Fg,
 	NvimTreeImageFile = { fg = c.purple_e },
-	NvimTreeSymlink = c.purple_e,
-	NvimTreeFolderName = c.blue,
+	NvimTreeSymlink = { fg = c.purple_e },
+	NvimTreeFolderName = colors.Blue,
 	NvimTreeBookmark = { fg = c.blue },
 }
 hl.plugins.telescope = {
+	-- Telescope links Normal/Border/Title of its four windows to these three groups, so they follow.
+	TelescopeNormal = {
+		fg = light and c.fg or c.white_bright,
+		bg = cfg.transparent and c.none or (light and c.panel or c.black),
+	},
+	TelescopePromptNormal = {
+		fg = light and c.fg or c.white_bright,
+		bg = cfg.transparent and c.none or (light and c.panel or c.black),
+	},
+	TelescopeResultsNormal = {
+		fg = light and c.fg or c.white_bright,
+		bg = cfg.transparent and c.none or (light and c.panel or c.black),
+	},
+	TelescopePreviewNormal = {
+		fg = light and c.fg or c.white_bright,
+		bg = cfg.transparent and c.none or (light and c.panel or c.black),
+	},
 	TelescopeBorder = { fg = c.white },
 	TelescopePromptBorder = { fg = c.white },
 	TelescopeResultsBorder = { fg = c.white },
@@ -549,7 +575,18 @@ hl.plugins.telescope = {
 	TelescopeTitle = { fg = c.red, fmt = "bold" },
 	TelescopeMatching = { fg = c.red, fmt = "bold" },
 	TelescopePromptPrefix = { fg = c.blue },
-	TelescopeSelection = { fg = c.blue, fmt = "bold" },
+	TelescopeSelection = { fg = c.blue, fmt = "bold", bg = light and c.visual_selector_color or c.none },
+}
+
+hl.plugins.dapui = {
+	-- Upstream links the panel and the groups it paints text with to Normal, so the whole DAP UI
+	-- painted the page colour; EndofBuffer is not a group at all (the editor's is EndOfBuffer).
+	DapUINormal = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	DapUINormalNC = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	DapUIEndofBuffer = { fg = light and c.grey or c.black, bg = light and c.panel or c.black },
+	DapUIVariable = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	DapUIValue = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	DapUIFrameName = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
 }
 
 hl.plugins.dashboard = {
@@ -582,13 +619,13 @@ hl.plugins.ts_rainbow = {
 
 hl.plugins.indent_blankline = {
 
-	IndentBlanklineIndent1 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineIndent2 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineIndent3 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineIndent4 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineIndent5 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineIndent6 = { fg = c.blue, bg = c.fg },
-	IndentBlanklineChar = { fg = c.bg1, gui = "nocombine" },
+	IndentBlanklineIndent1 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineIndent2 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineIndent3 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineIndent4 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineIndent5 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineIndent6 = { fg = c.blue, bg = light and c.bg2 or c.fg },
+	IndentBlanklineChar = { fg = light and c.grey or c.bg1, gui = "nocombine" },
 	IndentBlanklineContext = { fg = c.orange, bg = c.grey, bold = true },
 	IndentBlanklineContextChar = { fg = c.grey, gui = "nocombine" },
 	IndentBlanklineContextStart = { sp = c.grey, gui = "underline" },
@@ -645,6 +682,103 @@ hl.plugins.mini = {
 	MiniTestPass = { fg = c.green, fmt = "bold" },
 
 	MiniTrailspace = { bg = c.red },
+}
+
+-- Plugin groups whose upstream defaults are hardcoded hex (unreadable on glight) or link to an invisible group.
+-- Every other group of snacks, blink, fzf-lua, leap, lspsaga, notify, trouble, fidget, dap-ui, treesitter-context,
+-- render-markdown, lazy, mason and which-key is a default link to a group defined above, so it follows the palette.
+hl.plugins.notify = {
+	-- Upstream links the toast surface and its body text to Normal, so they painted the page colour.
+	NotifyBackground = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+}
+for level, color in pairs({ ERROR = c.red, WARN = c.yellow, INFO = c.green, DEBUG = c.grey, TRACE = c.purple }) do
+	for _, part in ipairs({ "Border", "Icon", "Title" }) do
+		hl.plugins.notify["Notify" .. level .. part] = { fg = color }
+	end
+	hl.plugins.notify["Notify" .. level .. "Body"] = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black }
+end
+
+hl.plugins.fzf_lua = {
+	FzfLuaHeaderBind = colors.Yellow,
+	FzfLuaHeaderText = colors.Red,
+	FzfLuaPathColNr = colors.Cyan,
+	FzfLuaPathLineNr = colors.Green,
+	FzfLuaLivePrompt = { fg = c.Charm_Pink },
+	FzfLuaLiveSym = { fg = c.Charm_Pink },
+	FzfLuaBufNr = colors.Yellow,
+	FzfLuaBufFlagCur = colors.Red,
+	FzfLuaBufFlagAlt = colors.Cyan,
+	FzfLuaTabTitle = { fg = c.blue, fmt = "bold" },
+	FzfLuaTabMarker = { fg = c.yellow, fmt = "bold" },
+	FzfLuaSel = { fg = light and c.panel_fg or "#2c373e", bg = light and c.visual_selector_color or "#4fb9ff" },
+	-- Upstream links these to Normal, so every window, border and scrollbar painted the page colour.
+	FzfLuaNormal = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaBorder = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaTitle = { fg = light and c.blue or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaHelpNormal = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaHelpBorder = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaPreviewNormal = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaPreviewBorder = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaPreviewTitle = { fg = light and c.blue or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaScrollBorderEmpty = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaScrollBorderFull = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfNormal = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfBorder = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfScrollbar = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfSeparator = { fg = light and c.grey or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfGutter = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfHeader = { fg = light and c.blue or c.white_bright, bg = light and c.panel or c.black },
+	FzfLuaFzfQuery = { fg = light and c.fg or c.white_bright, bg = light and c.panel or c.black },
+}
+
+hl.plugins.lspsaga = {
+	SagaBeacon = { fg = light and c.cursor_fg or nil, bg = light and c.red or c.Charm_Pink },
+	SagaVirtLine = colors.Grey,
+	SagaCount = { fg = c.black, bg = c.blue, fmt = "bold" },
+	DiagnosticErrorReverse = { fg = c.black, bg = c.light_Fiery_Rose },
+	DiagnosticWarnReverse = { fg = c.black, bg = c.apricot },
+	DiagnosticInfoReverse = { fg = c.black, bg = c.birght_navy_blue },
+	DiagnosticHintReverse = { fg = c.black, bg = c.Buff },
+}
+
+hl.plugins.trouble = {
+	TroubleCount = { fg = c.blue, fmt = "bold" }, -- upstream links TabLineSel, which is black-on-black here
+}
+
+hl.plugins.mason = {
+	MasonHeader = { fg = c.black, bg = c.yellow, fmt = "bold" },
+	MasonHeaderSecondary = { fg = c.black, bg = c.cyan, fmt = "bold" },
+	MasonHighlight = colors.Cyan,
+	MasonHighlightBlock = { fg = c.black, bg = c.cyan },
+	MasonHighlightBlockBold = { fg = c.black, bg = c.cyan, fmt = "bold" },
+	MasonHighlightSecondary = colors.Yellow,
+	MasonHighlightBlockSecondary = { fg = c.black, bg = c.yellow },
+	MasonHighlightBlockBoldSecondary = { fg = c.black, bg = c.yellow, fmt = "bold" },
+	MasonMuted = colors.Grey,
+	MasonMutedBlock = { fg = c.black, bg = c.grey },
+	MasonMutedBlockBold = { fg = c.black, bg = c.grey, fmt = "bold" },
+}
+
+hl.plugins.blink = {} -- BlinkCmpKind<Kind>, filled from lsp_kind_icons_color in M.setup
+
+-- Groups the nvim config used to patch by hand (those patches are deleted once the theme owns them).
+hl.plugins.snacks = {
+	-- Snacks' own default links this to Special (red); the light value is c.indent_scope (#59636e).
+	SnacksIndentScope = { fg = c.indent_scope },
+}
+
+hl.plugins.glance = {
+	GlancePreviewMatch = { bg = light and c.diff_text or "#323d45", fmt = "bold" },
+}
+
+hl.plugins.blamer = {
+	Blamer = { fg = light and c.light_grey or "#848b98" },
+}
+
+hl.plugins.telekasten = {
+	tkLink = { fg = light and c.blue or "#75ABBC", fmt = "bold,underline" },
+	tkTag = { fg = light and c.purple or "#E2C2FF", fmt = "bold,underline" },
+	tkBrackets = { fg = light and c.grey or "#808080" },
 }
 
 hl.langs.c = {
@@ -802,6 +936,7 @@ function M.setup()
 		}
 		hl.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
 		hl.plugins.navic["NavicIcons" .. kind] = { fg = color }
+		hl.plugins.blink["BlinkCmpKind" .. kind] = { fg = color }
 	end
 
 	vim_highlights(hl.common)

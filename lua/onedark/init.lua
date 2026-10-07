@@ -1,6 +1,6 @@
 local M = {}
 
-M.styles_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }
+M.styles_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light", "gdark", "glight" }
 
 ---Change onedark option (vim.g.onedark_config.option)
 ---It can't be changed directly by modifying that field due to a Neovim lua bug with global variables (onedark_config is a global variable)
@@ -19,12 +19,27 @@ function M.colorscheme()
 		vim.cmd("syntax reset")
 	end
 	vim.o.termguicolors = true
-	vim.g.colors_name = "onedark"
-	if vim.o.background == "light" then
+	local cfg = vim.g.onedark_config
+	if cfg.set_guicursor then -- name the colour groups so cursor colours follow the theme in a TUI
+		vim.o.guicursor = "n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-iCursor/lCursor,r-cr-o:hor20-Cursor/lCursor,t:block-blinkon500-blinkoff500-TermCursor"
+	end
+	local pair = { gdark = "glight", glight = "gdark" }
+	if pair[cfg.style] then
+		local bg = cfg.style == "glight" and "light" or "dark"
+		if bg ~= vim.o.background then
+			if cfg.background and cfg.background ~= vim.o.background then -- 'background' changed since last load: follow it
+				M.set_options("style", pair[cfg.style])
+			else -- style changed: set 'background'. `hi clear` unset colors_name, so this does not reload
+				vim.o.background = bg
+			end
+		end
+	elseif vim.o.background == "light" then
 		M.set_options("style", "light")
-	elseif vim.g.onedark_config.style == "light" then
+	elseif cfg.style == "light" then
 		M.set_options("style", "dark")
 	end
+	M.set_options("background", vim.o.background)
+	vim.g.colors_name = "onedark"
 	require("onedark.highlights").setup()
 	require("onedark.terminal").setup()
 end
@@ -37,7 +52,7 @@ function M.toggle()
 	end
 	M.set_options("style", vim.g.onedark_config.toggle_style_list[index])
 	M.set_options("toggle_style_index", index)
-	if vim.g.onedark_config.style == "light" then
+	if vim.g.onedark_config.style == "light" or vim.g.onedark_config.style == "glight" then
 		vim.o.background = "light"
 	else
 		vim.o.background = "dark"
@@ -54,6 +69,7 @@ local default_config = {
 	term_colors = true, -- if true enable the terminal
 	ending_tildes = false, -- show the end-of-buffer tildes
 	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+	set_guicursor = true, -- set 'guicursor' with theme colour groups so the cursor is visible in a TUI
 
 	-- Changing Formats --
 	code_style = {
