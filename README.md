@@ -26,6 +26,52 @@ anyone to use it.
 
 - [playground with nvim-treesitter](https://github.com/nvim-treesitter/playground/tree/master)
 
+## How to check the palette automatically
+
+`scripts/check.lua` reads the colours the theme really sets and reports the problems that are hard to
+spot by eye: a group whose text has the same colour as its background, a group whose background is the
+same as the page, and any text below the WCAG 4.5:1 contrast line.
+
+```sh
+nvim --clean --headless -i NONE --cmd "set rtp^=$PWD" -c "luafile $PWD/scripts/check.lua"
+```
+
+It prints one line per problem and ends with a summary. The exit code is 1 when a required check fails,
+so it can be used in a hook.
+
+```
+RESULT style=glight groups=<n> checked=<n> known=<n> fails=0
+```
+
+`fails=0` is the healthy result. The `known=` count only covers the groups on the allow list.
+
+Notes:
+
+- It checks the `glight` style only. Run it with `PALETTE=/path/to/palette.lua` to score a different
+  palette file.
+- The `KNOWN` list near the middle of the script holds the groups that cannot pass by design, such as
+  `MatchParen` and `TermCursor`. Add a group there only with a reason.
+- `SnacksIndent` and `SnacksIndentScope` are deliberate exceptions, held below the 3.0 UI floor
+  because indent guides are decoration, and they stay visible in the report.
+- A `FAIL` line is a real defect. Do not lower the threshold to silence it.
+
+## Cursor
+
+The theme sets `guicursor` when it loads, so the cursor takes its colour from the theme in every mode:
+normal, visual, insert, replace, operator-pending, command-line and terminal, plus the
+language-mapping pair. Turn it off with:
+
+```lua
+require("onedark").setup { set_guicursor = false }
+```
+
+Two limits, both from Neovim rather than from the theme:
+
+- In a terminal the cursor colour comes from the **background** of the cursor group. A terminal without
+  the OSC 12 escape sequence (Apple Terminal, some tmux setups) keeps its own colour.
+- Neovim ignores the cursor group's foreground colour in a terminal. It matters in a GUI such as
+  Neovide.
+
 ## To do next
 
 - [x] By `2023-04-23`, It seems up to this point, there is a conflict for the `Structure` vs
