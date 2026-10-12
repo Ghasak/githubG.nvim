@@ -46,7 +46,7 @@ return {
 		cursor_fg = "#ffffff",
 		menu_bg = "#f6f8fa",
 		line_nr_bg = "#ffffff",
-		indent_scope = "#59636e",
+		indent_scope = "#afb8c1", -- was #59636e
 		-- Added colors
 		Isbelline = "#1f2328",
 		Platinum = "#59636e",

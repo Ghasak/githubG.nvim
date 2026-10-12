@@ -763,7 +763,11 @@ hl.plugins.blink = {} -- BlinkCmpKind<Kind>, filled from lsp_kind_icons_color in
 
 -- Groups the nvim config used to patch by hand (those patches are deleted once the theme owns them).
 hl.plugins.snacks = {
-	-- Snacks' own default links this to Special (red); the light value is c.indent_scope (#59636e).
+	-- The live indent guide. snacks links SnacksIndent to NonText = c.grey, which is #636c76
+	-- in glight — the solid dark bars. glight uses bg3 (#d0d7de, 1.45:1) instead. Every other
+	-- style keeps c.grey, byte-identical to what the NonText link resolved to (NonText = c.grey).
+	SnacksIndent = { fg = light and c.bg3 or c.grey },
+	-- Snacks would link this to Special (red); the theme owns it.
 	SnacksIndentScope = { fg = c.indent_scope },
 }
 

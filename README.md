@@ -51,6 +51,8 @@ Notes:
   palette file.
 - The `KNOWN` list near the middle of the script holds the groups that cannot pass by design, such as
   `MatchParen` and `TermCursor`. Add a group there only with a reason.
+- `SnacksIndent` and `SnacksIndentScope` are deliberate exceptions, held below the 3.0 UI floor
+  because indent guides are decoration, and they stay visible in the report.
 - A `FAIL` line is a real defect. Do not lower the threshold to silence it.
 
 ## Cursor

@@ -64,14 +64,18 @@ end
 
 -- bg-only blocks with no glyph on them: UI check of the block against the canvas
 local BLOCK = { PmenuThumb = true, MiniTrailspace = true }
--- failures no palette value can fix: highlights.lua pairs two keys whose other roles force them
--- the same way (both dark, or a bg key used as fg). Printed as KNOWN, not counted, listed in the report.
+-- groups that fail the floor on purpose: either no palette value can fix them (highlights.lua pairs
+-- two keys whose other roles force them the same way — both dark, or a bg key used as fg), or the
+-- value is a deliberate choice for a decoration (the SnacksIndent entries below). Printed as KNOWN,
+-- not counted, listed in the report.
 local KNOWN = {
   MatchParen = "highlights.lua:76 bg=c.grey under syntax fg; grey is LineNr/NonText fg (:58,:77) so must be dark",
   TermCursor = "highlights.lua:48 fg=blue bg=fg + reverse: two text colours on top of each other",
   BufferCurrentMod = "highlights.lua:395 fg=c.black (editor bg) on editor bg; identical in gdark",
   IndentBlanklineChar = "highlights.lua:591 fg=c.bg1 (a bg layer); legacy ibl v2 group",
   IndentBlanklineContext = "highlights.lua:592 fg=orange bg=grey, both text colours; legacy ibl v2",
+  SnacksIndent = "deliberate glight choice: highlights.lua:769 holds the indent guides at bg3, 1.45:1 on white — a decoration, the 3.0 UI floor is not moved",
+  SnacksIndentScope = "deliberate glight choice: palette.lua:49 holds the cursor-block bar one step darker at 2.01:1 on white, the 3.0 UI floor is not moved",
 }
 for i = 1, 6 do KNOWN["IndentBlanklineIndent" .. i] = "highlights.lua:585-590 fg=blue bg=fg, both text colours; legacy ibl v2" end
 local known = 0
